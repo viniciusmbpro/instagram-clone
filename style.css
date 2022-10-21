@@ -59,19 +59,21 @@ body {
     color: var(--color-dark-text);
 }
 
-header {
+/*Configurações do cabecalho*/
+.header {
     position: fixed;
     border-bottom: 1px solid var(--color-gray-3);
     width: 100%;
     padding: 10px;
+    background: var(--color-white);
 }
 
-header h1 {
+.header h1 {
     margin: 0 20px;
     font-size: 3rem;
     font-family: 'Kaushan Script', cursive;
 }
-header .icon {
+.header .icon {
     font-size: 2.5rem;
     display: none;
 }
@@ -135,6 +137,89 @@ header .icon {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+}
+
+/*Configurações do main*/
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6rem;
+}
+.stories-box {
+    background: var(--color-white);
+    border: var(--color-gray-3) solid 1px;
+    border-radius: 10px;
+    max-width: 50rem;
+    height: 10rem;
+    margin: 2rem 1rem;
+    padding: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.profile-storie {
+    width: 5rem;
+    height: 5rem;
+    margin: 2rem;
+}
+.profile-img {
+    width: 5.4rem;
+    height: 5.4rem;
+    padding: 0.2rem;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgb(227, 174, 0), rgb(214, 0, 217));
+}
+.profile-img img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: solid var(--color-white) 2px;
+}
+.profile-storie p {
+    text-align:start;
+}
+
+/*Configurações do feed*/
+.feeds-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6rem;
+}
+.post-box {
+    width: 30rem;
+    height: 60rem;
+    border-radius: 10px;
+    border: solid var(--color-gray-3) 1px;
+}
+.post-box header {
+    padding: 1rem;
+}
+.post-box header .profile-post {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 12rem;
+}
+.shadow-img {
+    width: 5.4rem;
+    height: 5.4rem;
+    padding: 0.2rem;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgb(227, 174, 0), rgb(214, 0, 217));
+}
+.shadow-img img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: solid var(--color-white) 2px;
 }
 
 @media (max-width: 600px) {
