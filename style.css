@@ -192,36 +192,53 @@ main {
 
 /*Configurações do feed*/
 .feed-box {
-    max-width: 50rem;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 80rem;
 }
 .post-box {
-    width: 100%;
+    max-width: 37rem;
     margin-bottom: 3rem;
     height: 60rem;
     border-radius: 10px;
     border: solid var(--color-gray-3) 1px;
 }
 .post-box header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     padding: 1rem;
     border-bottom: solid var(--color-gray-3) 1px;
+}
+.post-box header .more {
+    font-size: 3rem;
+    color: var(--color-gray-7);
+    font-weight: 600;
+    margin: 1rem;
+    margin-top: 0;
+    text-decoration: none;
 }
 .post-box header .profile-post {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 12rem;
+    width: 11rem;
 }
 .shadow-img {
-    width: 5.4rem;
-    height: 5.4rem;
+    width: 4.4rem;
+    height: 4.4rem;
     padding: 0.2rem;
     border-radius: 50%;
     background: linear-gradient(to right, rgb(227, 174, 0), rgb(214, 0, 217));
 }
 .shadow-img img {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     border: solid var(--color-white) 2px;
 }
