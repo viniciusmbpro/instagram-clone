@@ -127,9 +127,6 @@ body {
     margin: 0;
     padding: 0;
 }
-.shadow {
-    width: 60px;
-}
 
 /* flex */
 .flex-container {
@@ -153,13 +150,13 @@ main {
     border-radius: 10px;
     max-width: 50rem;
     height: 10rem;
-    margin: 2rem 1rem;
+    margin: 2rem auto;
     padding: 3rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: hidden;
 }
 .profile-storie {
@@ -186,20 +183,17 @@ main {
 
 /*Configurações do feed*/
 .feeds-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding-top: 6rem;
 }
 .post-box {
-    width: 30rem;
+    max-width: 40rem;
     height: 60rem;
     border-radius: 10px;
     border: solid var(--color-gray-3) 1px;
 }
 .post-box header {
     padding: 1rem;
+    border-bottom: solid var(--color-gray-3) 1px;
 }
 .post-box header .profile-post {
     display: flex;
@@ -221,18 +215,30 @@ main {
     border-radius: 50%;
     border: solid var(--color-white) 2px;
 }
+.post-box .post-photo {
+    width: 100%;
+    height: 80%;
+}
+.post-box .post-photo img {
+    width: 100%;
+    height: 80%;
+}
 
 @media (max-width: 600px) {
     .menu {
+        background: var(--color-white);
         width: 100%;
         position: fixed;
         bottom: 0%;
         left: 0%;
     }
-    header .icon {
+    .header .icon {
         display: inline;
     }
-    header h1 {
+    .header h1 {
         display: none;
+    }
+    .search {
+        width: 100%;
     }
   }
