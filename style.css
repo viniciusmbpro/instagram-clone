@@ -191,6 +191,7 @@ main {
 }
 
 /*Configurações do feed*/
+/*caixa do feed*/
 .feed-box {
     display: flex;
     flex-direction: row;
@@ -199,13 +200,15 @@ main {
     justify-content: space-around;
     max-width: 80rem;
 }
+/*caixa do post*/
 .post-box {
     max-width: 37rem;
     margin-bottom: 3rem;
-    height: 60rem;
+    height: fit-content;
     border-radius: 10px;
     border: solid var(--color-gray-3) 1px;
 }
+/*cabeçalho do post*/
 .post-box header {
     display: flex;
     flex-direction: row;
@@ -242,6 +245,7 @@ main {
     border-radius: 50%;
     border: solid var(--color-white) 2px;
 }
+/*media do post*/
 .post-box .post-photo {
     width: 100%;
     height: 80%;
@@ -249,6 +253,83 @@ main {
 .post-box .post-photo img {
     width: 100%;
     height: 80%;
+}
+/*reations do post*/
+.post-box .reaction-post {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.post-box .reaction-post i {
+    font-size: 2.3rem;
+    margin: 0.5rem;
+}
+.post-box .reaction-post a {
+    text-decoration: none;
+    color: black;
+}
+/* conteúdo do post */
+.post-box .post-content {
+    padding: 1rem;
+    border-bottom: var(--color-gray-3) solid 1px;
+}
+.post-box .post-content .likes {
+    margin: 1rem;
+    font-weight: 600;
+}
+.post-box .post-content .content * {
+    display: inline;
+    font-size: 1.4rem;
+    text-align: justify;
+}
+.post-box .post-content .content span {
+    font-weight: 600;
+}
+.post-box .post-content .comments {
+    padding: 1rem 0;
+}
+.post-box .post-content .comments a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--color-gray-6);
+    font-weight: 600;
+}
+.post-box .post-content .post-date {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--color-gray-5);
+    font-weight: 600;
+}
+/* send comment to post */
+.post-box .send-comment {
+    padding: 1rem;
+}
+.post-box .send-comment * {
+    display: inline;
+}
+.post-box .send-comment i {
+    font-size: 2.5rem;
+}
+.post-box .send-comment form input, 
+.post-box .send-comment form button {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background: none;
+    outline: none;
+    font-size: 1.6rem;
+    transition: all 300ms ease-in-out;
+    color: black;
+}
+.post-box .send-comment form input {
+    width: 75%;
+}
+.post-box .send-comment form button {
+    width: 10%;
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
 @media (max-width: 600px) {
