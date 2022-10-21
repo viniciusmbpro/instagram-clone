@@ -142,6 +142,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     padding-top: 6rem;
 }
 .stories-box {
@@ -150,7 +151,7 @@ main {
     border-radius: 10px;
     max-width: 50rem;
     height: 10rem;
-    margin: 2rem auto;
+    margin: 2rem 0;
     padding: 3rem;
     display: flex;
     flex-direction: row;
@@ -159,10 +160,17 @@ main {
     overflow-x: scroll;
     overflow-y: hidden;
 }
+.stories-box::-webkit-scrollbar { height: 5px; }
+.stories-box::-webkit-scrollbar-track { background: rgb(255, 255, 255); }
+.stories-box::-webkit-scrollbar-thumb { background: linear-gradient(to right, rgb(227, 174, 0), rgb(214, 0, 217)); }
 .profile-storie {
-    width: 5rem;
-    height: 5rem;
-    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    height: 7.2rem;
+    margin: 0.5rem;
 }
 .profile-img {
     width: 5.4rem;
@@ -179,14 +187,16 @@ main {
 }
 .profile-storie p {
     text-align:start;
+    font-size: 1.3rem;
 }
 
 /*Configurações do feed*/
-.feeds-box {
-    padding-top: 6rem;
+.feed-box {
+    max-width: 50rem;
 }
 .post-box {
-    max-width: 40rem;
+    width: 100%;
+    margin-bottom: 3rem;
     height: 60rem;
     border-radius: 10px;
     border: solid var(--color-gray-3) 1px;
@@ -239,6 +249,12 @@ main {
         display: none;
     }
     .search {
+        width: 100%;
+    }
+    .stories-box {
+        width: 100%;
+    }
+    .feeds-box {
         width: 100%;
     }
   }
