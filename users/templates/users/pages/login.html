@@ -10,10 +10,10 @@
 
 {% block content %}
 
-{% include 'global/partials/messages.html' %}
-
 <div class="form-login">
     <h1>Instagram</h1>
+    
+    {% include 'global/partials/messages.html' %}
 
     <form action="{{ form_action }}" method="POST">
         {% csrf_token %}

@@ -1,5 +1,6 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -8,6 +9,7 @@ from users.forms import LoginForm, RegisterForm
 
 
 def login_page(request):
+
     form = LoginForm()
     return render(request, 'users/pages/login.html', {
         'form': form,
@@ -28,7 +30,7 @@ def login_create(request):
         )
 
         if authenticated_user is not None:
-            messages.sucess(request, 'Your are logged in.')
+            messages.success(request, 'Your are logged in.')
             login(request, authenticated_user)
         else:
             messages.error(request, 'Invalid credentials')
@@ -65,3 +67,18 @@ def signup_create(request):
         return redirect(reverse('users:login'))
 
     return redirect('users:signup')
+
+
+@login_required(login_url='users:login', redirect_field_name='next')
+def logout_trigger(request):
+    if not request.POST:
+        messages.error(request, 'Invalid logout request')
+        return redirect(reverse('users:login'))
+
+    if request.POST.get('username') != request.user.username:
+        messages.error(request, 'Invalid logout user')
+        return redirect(reverse('users:login'))
+
+    messages.success(request, 'Logged out successfully')
+    logout(request)
+    return redirect(reverse('users:login'))
