@@ -1,0 +1,95 @@
+{% extends 'global/base.html' %}
+
+{% load static %}
+
+{% block style_css %}
+{% include 'instagram_clone/partials/style.html' %}
+{% endblock style_css %}
+
+{% block title %}Home | {% endblock title %}
+
+{% block header %}
+{% include 'instagram_clone/partials/header.html' %}
+{% endblock header %}
+
+{% block content %}
+
+<section class="stories-box">
+    {% for n in range %}
+        <article class="profile-storie">
+            <div class="profile-img">
+                <img src="{% static 'global/images/profile-example1.png' %}" alt="">
+            </div>
+            <p>user - {{ n }}</p>
+        </article>
+    {% endfor %}
+</section>
+
+<section class="feed-box">
+    {% for n in range %}
+        <article class="post-box">
+            <header>
+                <div class="profile-post">
+                    <div class="shadow-img">
+                        <img src="{% static 'global/images/profile-example1.png' %}" alt="">
+                    </div>
+                    <p>forbesbr</p>
+                </div>
+                <a href="" class="more">...</a>
+            </header>
+
+            <div class="post-photo">
+                <img src="{% static 'global/images/profile-example1.png' %}" alt="">
+            </div>
+
+            <div class="reaction-post">
+                <div class="reaction-direct">
+                    <a href="">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-regular fa-message"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </a>
+                </div>
+                <div class="reaction-favorite">
+                    <a href="">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="post-content">
+                <div class="likes">
+                    5.654 likes
+                </div>
+
+                <div class="content">
+                    <span>bruno_perini</span>
+                    <p class="post-content-p">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                </div>
+
+                <div class="comments">
+                    <a href="">View all 86 comments</a>
+                </div>
+
+                <div class="post-date">
+                    1 HOUR AGO
+                </div>
+            </div>
+
+            <div class="send-comment">
+                <i class="fa-regular fa-face-smile"></i>
+
+                <form action="" method="get">
+                    <input type="text" placeholder="Add a comment...">
+                    <button type="submit">Post</button>
+                </form>
+            </div>
+        </article>
+    {% endfor %}
+</section>
+
+{% endblock content  %}
