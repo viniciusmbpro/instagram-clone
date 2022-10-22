@@ -6,7 +6,7 @@
 {% include 'users/partials/style.html' %}
 {% endblock style_css %}
 
-{% block title %}Login | {% endblock title %}
+{% block title %}Sign-up | {% endblock title %}
 
 {% block content %}
 
@@ -16,10 +16,8 @@
     <div class="other-options">
         <a href="">
             <i class="face fa-brands fa-square-facebook"></i>
-            Log in with Facebook
+            Sign up with Facebook
         </a>
-
-        <a href="" class="forgot-password">Forgot password ?</a>
     </div>
 
     <div class="or">
@@ -28,11 +26,16 @@
         <div class="line"></div>
     </div>
 
-    <form action="">
-        <input type="text" name="first-name" placeholder="First name">
-        <input type="text" name="last-name" placeholder="Last name">
-        <input type="email" name="email" placeholder="username or email">
-        <input type="password" name="password" placeholder="Password">
+    <form action="{{ form_action }}" method="POST">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-group">
+                {{field}}
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{field.errors}}
+            </div>
+        {% endfor %}
         <p>People who use our service may have uploaded your contact information to Instagram. Learn More</p>
         <p>By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</p>
         <button type="submit">Sign up</button>
