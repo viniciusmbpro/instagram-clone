@@ -34,15 +34,18 @@
             <a href="#">
                 <i class="fa-regular fa-heart"></i>
             </a>
-            <a href="#">
-                <div class="shadow">
-                    <div class="profile">
-                        <a href="{% url 'users:login' %}">
-                            <img src="{% static 'global/images/profile-default.webp' %}" alt="">
-                        </a>
-                    </div>
+            <div class="profile">
+                <img src="{% static 'global/images/profile-default.webp' %}" alt="">
+                <div class="profile-options">
+                    <a href="">Profile</a>
+                    <a href="">Saved</a>
+                    <a href="">Settings</a>
+                    <a href="">Report a problem</a>
+                    <a href="">Switch accounts</a>
+                    <hr>
+                    {% include 'global/partials/form_logout.html' %}
                 </div>
-            </a>
+            </div>
         </nav>
     </div>
 </header>
