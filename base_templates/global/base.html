@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    {% include 'global/partials/head.html' %}
+
+    {% block style_css %}{% endblock style_css %}
+
+    <title>{% block title %}{% endblock title %} Instagram Clone</title>
+</head>
+
+{% block header %}{% endblock header %}
+
+<body>
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+{% load static %}
+
+<header class="header flex-container">
+    <div class="flex-item">
+        <h1>Instagram Clone</h1>
+        <i class="icon fa-brands fa-instagram"></i>
+    </div>
+
+    <div class="flex-item">
+        <div class="search">
+            <form action="" method="get">
+                <input type="text" class="search-input" placeholder="Search">
+                <button type="submit" class="search-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="flex-item">
+        <nav class="menu">
+            <a href="#">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="#">
+                <i class="fa-regular fa-message"></i>
+            </a>
+            <a href="#">
+                <i class="fa-solid fa-plus"></i>
+            </a>
+            <a href="#">
+                <i class="fa-regular fa-compass"></i>
+            </a>
+            <a href="#">
+                <i class="fa-regular fa-heart"></i>
+            </a>
+            <a href="#">
+                <div class="shadow">
+                    <div class="profile">
+                        <a href="{% url 'users:login' %}">
+                            <img src="{% static 'global/images/profile-default.webp' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </a>
+        </nav>
+    </div>
+</header>
