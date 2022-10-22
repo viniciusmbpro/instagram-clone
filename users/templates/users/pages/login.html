@@ -15,9 +15,17 @@
 <div class="form-login">
     <h1>Instagram</h1>
 
-    <form action="{% url 'insta:home' %}">
-        <input type="email" name="email" placeholder="username or email">
-        <input type="password" name="password" placeholder="Password">
+    <form action="{{ form_action }}" method="POST">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-group">
+                {{field}}
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{field.errors}}
+            </div>
+        {% endfor %}
+        
         <button type="submit">Log in</button>
     </form>
 
