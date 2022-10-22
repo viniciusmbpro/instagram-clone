@@ -118,11 +118,45 @@ body {
     font-size: 2.5rem;
 }
 .profile {
-    margin: 0;
-    padding: 0;
+    position: relative;
+}
+.profile-options {
+    display: none;
+    position: absolute;
+    left: -300%;
+    background: var(--color-white);
+    border: solid var(--color-gray-3) 1px;
+    border-radius: 0.5rem;
+    width: 20rem;
+}
+.profile-options a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--color-gray-5);
+}
+.profile-options a:hover {
+    background: #e8e8e8;
+}
+.profile-options button {
+    display: block;
+    padding: 1rem;
+    border: none;
+    width: 100%;
+    text-align: start;
+    background: var(--color-white);
+    font-size: 1.6rem;
+    color: var(--color-gray-5);
+}
+.profile-options button:hover {
+    background: #e8e8e8;
+}
+.profile:hover > .profile-options {
+    display: block;
 }
 .profile img {
-    height: 25px;
+    display: inline;
+    height: 2.5rem;
     border-radius: 50%;
     margin: 0;
     padding: 0;
@@ -390,6 +424,7 @@ color: var(--color-debug-dark);
         position: fixed;
         bottom: 0%;
         left: 0%;
+        padding: 1.5rem 1rem;
     }
     .header .icon {
         display: inline;
@@ -405,5 +440,9 @@ color: var(--color-debug-dark);
     }
     .feeds-box {
         width: 100%;
+    }
+    .profile:hover > .profile-options {
+        left: -600%;
+        top: -880%;
     }
   }
