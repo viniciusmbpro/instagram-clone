@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block style_css %}
-{% include 'instagram_clone/partials/style.html' %}
+<link rel="stylesheet" href="{% static 'global/css/style.css' %}">
 {% endblock style_css %}
 
 {% block title %}Home | {% endblock title %}
@@ -28,26 +28,37 @@
 </section>
 
 <section class="feed-box">
-    {% for n in range %}
-        <article class="post-box">
+    {% for post, like in posts %}
+        <article class="post-box" id="post{{post.id}}">
             <header>
                 <div class="profile-post">
                     <div class="shadow-img">
                         <img src="{% static 'global/images/profile-example1.png' %}" alt="">
                     </div>
-                    <p>forbesbr</p>
+                    <p>{{post.user}}</p>
                 </div>
                 <a href="" class="more">...</a>
             </header>
 
             <div class="post-photo">
-                <img src="{% static 'global/images/profile-example1.png' %}" alt="">
+                <img src="/media/{{post.photo}}" alt="">
             </div>
 
             <div class="reaction-post">
                 <div class="reaction-direct">
-                    <a href="">
-                        <i class="fa-regular fa-heart"></i>
+                    <a>
+                        <form class="inline-form form-logout" action="{% url 'insta:post_like' %}" method='POST'>
+                            {% csrf_token %}
+                            <input type="hidden" name="username" value="{{ request.user }}">
+                            <input type="hidden" name="post" value="{{ post.id }}">
+                            <button type="submit">
+                                {% if like.liked %}
+                                    <i class="fa-solid fa-heart" style="color: red;"></i>
+                                {% else %}
+                                    <i class="fa-regular fa-heart"></i>
+                                {% endif %}
+                            </button>
+                        </form>
                     </a>
                     <a href="">
                         <i class="fa-regular fa-message"></i>
@@ -65,12 +76,12 @@
 
             <div class="post-content">
                 <div class="likes">
-                    5.654 likes
+                    {{like.n_likes}} likes
                 </div>
 
                 <div class="content">
-                    <span>bruno_perini</span>
-                    <p class="post-content-p">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <span>{{post.user}}</span>
+                    <p class="post-content-p">{{post.caption}}</p>
                 </div>
 
                 <div class="comments">
@@ -78,7 +89,7 @@
                 </div>
 
                 <div class="post-date">
-                    1 HOUR AGO
+                    {{post.created_at}}
                 </div>
             </div>
 

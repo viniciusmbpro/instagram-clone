@@ -177,7 +177,7 @@ main {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-top: 6rem;
+    padding: 8rem 0rem;
 }
 .stories-box {
     background: var(--color-white);
@@ -185,7 +185,7 @@ main {
     border-radius: 10px;
     max-width: 50rem;
     height: 10rem;
-    margin: 2rem 0;
+    margin-bottom: 2rem;
     padding: 3rem;
     display: flex;
     flex-direction: row;
@@ -232,12 +232,12 @@ main {
     flex-flow: wrap;
     align-items: center;
     justify-content: space-around;
-    max-width: 80rem;
+    max-width: 70rem;
 }
 /*caixa do post*/
 .post-box {
-    max-width: 37rem;
-    margin-bottom: 3rem;
+    max-width: 45rem;
+    margin: 2rem 2rem;
     height: fit-content;
     border-radius: 10px;
     border: solid var(--color-gray-3) 1px;
@@ -299,10 +299,19 @@ main {
 .post-box .reaction-post i {
     font-size: 2.3rem;
     margin: 0.5rem;
+    cursor: pointer;
 }
 .post-box .reaction-post a {
     text-decoration: none;
     color: black;
+}
+.post-box .reaction-post a button {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.inline-form {
+    display: inline;
 }
 /* conteúdo do post */
 .post-box .post-content {
@@ -345,6 +354,7 @@ main {
 }
 .post-box .send-comment i {
     font-size: 2.5rem;
+    cursor: pointer;
 }
 .post-box .send-comment form input, 
 .post-box .send-comment form button {
