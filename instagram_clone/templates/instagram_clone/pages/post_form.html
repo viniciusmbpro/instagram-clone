@@ -1,0 +1,71 @@
+{% extends 'global/base.html' %}
+
+{% load static %}
+
+{% block style_css %}
+<link rel="stylesheet" href="{% static 'global/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'global/css/post_form.css' %}">
+{% endblock style_css %}
+
+{% block title %}Home | {% endblock title %}
+
+{% block header %}
+{% include 'instagram_clone/partials/header.html' %}
+{% endblock header %}
+
+{% block content %}
+
+{% include 'global/partials/messages.html' %}
+
+<div class="post-form">
+    <form action="{{ form_action }}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{field}}
+                {% if field.label == 'Photo' %}
+                    <img src="/media/{{field.value}}" alt="" id="photo">
+                    <div class="btn-cancelar" id="cancelar" onclick="cancelar()" style="display: none;">Cancelar</div>
+                {% endif %}
+                {{field.errors}}
+            </div>
+        {% endfor %}
+        <button type="submit">Post</button>
+    </form>
+</div>
+
+<script>
+    var img = document.getElementById('photo').src;
+    document.body.style.setProperty('--bg', 'url('+img+')');
+    localStorage.setItem('imagem', '');
+
+    function cancelar() {
+        document.getElementById('id_photo').value='';
+        document.getElementById('photo').src=localStorage.getItem('imagem');
+        document.getElementById('cancelar').style.display='none';
+        document.body.style.setProperty('--bg', 'url('+localStorage.getItem('imagem')+')');
+    }
+    function preview() {
+        let file = document.getElementById('id_photo');
+        
+        let photo = document.getElementById('photo');
+        if(localStorage.getItem('imagem')=='') {
+            localStorage.setItem('imagem', photo.src);
+        }
+
+        document.getElementById('cancelar').style.display='inline-block';
+
+        let reader = new FileReader();
+
+        reader.onload = () => {
+            photo.src = reader.result;
+            document.body.style.setProperty('--bg', 'url('+reader.result+')');
+        }
+
+        reader.readAsDataURL(file.files[0])
+    }
+</script>
+
+{% endblock content  %}
