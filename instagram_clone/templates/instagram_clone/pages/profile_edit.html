@@ -1,0 +1,60 @@
+{% extends 'global/base.html' %}
+
+{% load static %}
+
+{% block style_css %}
+<link rel="stylesheet" href="{% static 'global/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'global/css/menu.css' %}">
+<link rel="stylesheet" href="{% static 'global/css/profile_edit.css' %}">
+{% endblock style_css %}
+
+{% block title %}Profile | {% endblock title %}
+
+{% block header %}
+{% include 'instagram_clone/partials/header.html' %}
+{% endblock header %}
+
+{% block content %}
+
+{% include 'global/partials/messages.html' %}
+
+<div class="menu-status-frame">
+    {% include 'instagram_clone/partials/menu.html' %}
+</div>
+
+<section class="profile-edit-box">
+    <nav class="menu-box">
+        <a class="active">Edit profile</a>
+        <a>Change password</a>
+        <a>Apps and websites</a>
+        <a>Email notifications</a>
+        <a>Push notifications</a>
+        <a>Manage contacts</a>
+        <a>Privacy and security</a>
+        <a>Ads</a>
+        <a>Supervision</a>
+        <a>Login activity</a>
+        <a>Emails from Instagram</a>
+        <a>Help</a>
+        <a>Logout</a>
+    </nav>
+
+    <div class="profile-form">
+        <form action="{{ form_action }}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+    
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{field}}
+                    {{field.errors}}
+                </div>
+            {% endfor %}
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</section>
+
+<script src="{% static 'global/js/scripts.js' %}"></script>
+{% endblock content  %}
+

@@ -1,2 +1,3 @@
 # flake8: noqa
-from .post_form import PostForm
+from .post_form import *
+from .profile_form import *

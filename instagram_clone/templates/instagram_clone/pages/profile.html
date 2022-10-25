@@ -1,0 +1,64 @@
+{% extends 'global/base.html' %}
+
+{% load static %}
+
+{% block style_css %}
+<link rel="stylesheet" href="{% static 'global/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'global/css/profile.css' %}">
+{% endblock style_css %}
+
+{% block title %}Profile | {% endblock title %}
+
+{% block header %}
+{% include 'instagram_clone/partials/header.html' %}
+{% endblock header %}
+
+{% block content %}
+
+{% include 'global/partials/messages.html' %}
+
+<section class="profile-box">
+
+    <div class="profile-top">
+        <div class="photo-profile">
+            <img src="{% static 'global/images/profile-default.webp' %}">
+        </div>
+
+        <div class="info-profile">
+            <div class="edit">
+                <p>{{request.user.username}}</p>
+                <a href="{% url 'insta:profile_edit' %}">Edit profile</a>
+            </div>
+
+            <div class="numbers">
+                <div><span>{{num_posts}}</span> posts</div>
+                <div><span>0</span> followers</div>
+                <div><span>0</span> following</div>
+            </div>
+
+            <div class="name">
+                {{request.user.first_name}} {{request.user.last_name}}
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-down">
+        <nav>
+            <a href="" class="option-profile-selected">POSTS</a>
+            <a href="">SAVED</a>
+            <a href="">TAGGED</a>
+        </nav>
+    </div>
+
+</section>
+
+<section class="profile-posts">
+    {% for post, num_likes in posts %}
+        <article class="post-box">
+            <figcaption>{{num_likes}} likes | 0 comments</figcaption>
+            <img style="background: url(/media/{{ post.photo }});background-size: cover;background-position: 50% 50%;">
+        </article>
+    {% endfor %}
+</section>
+
+{% endblock content  %}

@@ -7,7 +7,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     photo = models.ImageField(
-        upload_to='instagram_clone/photos/', blank=True, default='')
+        upload_to='instagram_clone/post_photos/', blank=True, default='')
     user = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
     )

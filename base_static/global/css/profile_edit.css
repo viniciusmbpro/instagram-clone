@@ -1,0 +1,69 @@
+.menu-status-frame {
+    display: none;
+}
+
+.profile-edit-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    border: solid var(--color-gray-3) 1px;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+.profile-edit-box .menu-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: center;
+    width: 20rem;
+    border-right: solid var(--color-gray-3) 1px;
+}
+.profile-edit-box .menu-box a {
+    color: var(--color-gray-8);
+    padding: 1rem 2rem;
+}
+.profile-edit-box .menu-box a:hover {
+    color: rgb(104, 104, 104);
+    border-left: solid rgb(104, 104, 104) 2px;
+    font-weight: bold;
+}
+.profile-edit-box .profile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    padding: 3rem;
+}
+.profile-edit-box .profile-form .form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: flex-start;
+    padding: 2rem;
+}
+.profile-edit-box .profile-form .form-group label {
+    margin-right: 2rem;
+}
+.profile-edit-box .profile-form button {
+    padding: 0.5rem;
+    width: 100%;
+    color: var(--color-primary);
+    border: solid var(--color-primary) 1px;
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+
+.active {
+    border-left: solid black 2px;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .menu-status-frame {
+        display: block;
+    }
+    .profile-edit-box .menu-box {
+        display: none;
+    }
+  }
