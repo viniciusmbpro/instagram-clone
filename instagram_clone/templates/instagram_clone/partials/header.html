@@ -37,7 +37,7 @@
             <div class="profile">
                 <img src="{% static 'global/images/profile-default.webp' %}" alt="">
                 <div class="profile-options">
-                    <a href="{% url 'insta:profile' %}">Profile</a>
+                    <a href="{% url 'insta:profile' request.user.username %}">Profile</a>
                     <a href="">Saved</a>
                     <a href="">Settings</a>
                     <a href="">Report a problem</a>
