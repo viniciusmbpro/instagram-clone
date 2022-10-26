@@ -35,9 +35,13 @@
                     <div class="shadow-img">
                         <img src="{% static 'global/images/profile-example1.png' %}" alt="">
                     </div>
-                    <p>{{post.user}}</p>
+                    <p><a href="{% url 'insta:profile' post.user %}" class="link-desnatado">{{post.user}}</a></p>
                 </div>
-                <a href="" class="more">...</a>
+                {% if request.user.id == post.user.id %}
+                    <a href="{% url 'insta:post_edit' post.id %}" class="more">...</a>
+                {% else %}
+                    <a class="more">...</a>
+                {% endif %}
             </header>
 
             <div class="post-photo">
@@ -80,7 +84,7 @@
                 </div>
 
                 <div class="content">
-                    <span>{{post.user}}</span>
+                    <span><a href="{% url 'insta:profile' post.user %}" class="link-desnatado">{{post.user}}</a></span>
                     <p class="post-content-p">{{post.caption}}</p>
                 </div>
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Comment, Like, Post
+from .models import Comment, Like, Post, Profile
 
 
 @admin.register(Post)
@@ -15,4 +15,9 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Like)
 class LikeAdmin(admin.ModelAdmin):
+    ...
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
     ...

@@ -43,10 +43,22 @@
         <form action="{{ form_action }}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
     
-            {% for field in form %}
+            {% for field in user_form %}
                 <div class="form-group">
                     <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                     {{field}}
+                    {{field.errors}}
+                </div>
+            {% endfor %}
+
+            {% for field in profile_form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{field}}
+                    {% if field.label == 'Photo' %}
+                        <img src="/media/{{field.value}}" alt="" id="photo">
+                        <div class="btn-cancelar" id="cancelar" onclick="cancelar()" style="display: none;">Cancelar</div>
+                    {% endif %}
                     {{field.errors}}
                 </div>
             {% endfor %}
@@ -54,6 +66,37 @@
         </form>
     </div>
 </section>
+<script>
+    var img = document.getElementById('photo').src;
+    document.body.style.setProperty('--bg', 'url('+img+')');
+    localStorage.setItem('imagem', '');
+
+    function cancelar() {
+        document.getElementById('id_photo').value='';
+        document.getElementById('photo').src=localStorage.getItem('imagem');
+        document.getElementById('cancelar').style.display='none';
+        document.body.style.setProperty('--bg', 'url('+localStorage.getItem('imagem')+')');
+    }
+    function preview() {
+        let file = document.getElementById('id_photo');
+        
+        let photo = document.getElementById('photo');
+        if(localStorage.getItem('imagem')=='') {
+            localStorage.setItem('imagem', photo.src);
+        }
+
+        document.getElementById('cancelar').style.display='inline-block';
+
+        let reader = new FileReader();
+
+        reader.onload = () => {
+            photo.src = reader.result;
+            document.body.style.setProperty('--bg', 'url('+reader.result+')');
+        }
+
+        reader.readAsDataURL(file.files[0])
+    }
+</script>
 
 <script src="{% static 'global/js/scripts.js' %}"></script>
 {% endblock content  %}

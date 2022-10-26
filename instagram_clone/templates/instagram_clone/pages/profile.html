@@ -21,13 +21,19 @@
 
     <div class="profile-top">
         <div class="photo-profile">
-            <img src="{% static 'global/images/profile-default.webp' %}">
+            <img src="/media/{{profile.photo}}">
         </div>
 
         <div class="info-profile">
             <div class="edit">
-                <p>{{request.user.username}}</p>
-                <a href="{% url 'insta:profile_edit' %}">Edit profile</a>
+                <p>{{profile.user.username}}</p>
+                {% if profile.user.id == request.user.id %}
+                    <a href="{% url 'insta:profile_edit' profile.user.id %}">Edit profile</a>
+                {% endif %}
+            </div>
+
+            <div>
+                {{profile.bio}}
             </div>
 
             <div class="numbers">
@@ -37,7 +43,7 @@
             </div>
 
             <div class="name">
-                {{request.user.first_name}} {{request.user.last_name}}
+                {{profile.user.first_name}} {{profile.user.last_name}}
             </div>
         </div>
     </div>
