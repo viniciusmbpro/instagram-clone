@@ -427,6 +427,12 @@ background: var(--color-debug-light);
 color: var(--color-debug-dark);
 }
 
+/* link desnatado */
+.link-desnatado {
+    color: var(--color-gray-8);
+    text-decoration: none;
+}
+
 @media (max-width: 600px) {
     .menu {
         background: var(--color-white);
